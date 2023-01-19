@@ -81,7 +81,6 @@ def filter_rows(data, filter_by):
     data = data[data[filter_by[0]] == filter_by[1]]
     return data
 ```
-```
 
 ## Data loading functions
 ```
@@ -122,8 +121,7 @@ def handle_missing_values(data):
     data = data.fillna(data.mean())
     return data
 ```
-```
-
+``` 
 ## Data transformation functions
 ```
 def encode_categorical_variables(data):
