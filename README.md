@@ -188,6 +188,7 @@ def balance_dataset(data):
 
 ## feature engineering 
 This function takes in a dataframe and creates five new features. The first feature is the log of the 'column1' column. The second feature is the interaction between 'column2' and 'column3'. The third feature is the square of 'column4', the fourth feature is 'column5' with categorical variable and the fifth feature is the round of 'column1'.
+
 ```
 import numpy as np
 
@@ -206,6 +207,7 @@ def engineer_features(data):
 
 engineered_data = engineer_features(data)
 ```
+
 ## Dimensionality reduction
 ```
 from sklearn.decomposition import PCA
