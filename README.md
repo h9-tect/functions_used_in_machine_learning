@@ -13,6 +13,7 @@ here is our functions
 - Feature extraction functions: functions for extracting features such as image, text, audio, and video.
 - Data reshaping functions: functions for reshaping data into the format required by a particular model, such as converting data into tensors.
 - Data balancing functions: functions for balancing the dataset when there is a class imbalance.
+- feature engineering ,Dimensionality reduction, Clustering,Anomaly detection,and Imputing Missing Values
 
 
 ### Data preparation functions
