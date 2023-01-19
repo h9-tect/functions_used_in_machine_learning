@@ -186,5 +186,72 @@ def balance_dataset(data):
     return data
 ```
 
+## feature engineering 
+This function takes in a dataframe and creates five new features. The first feature is the log of the 'column1' column. The second feature is the interaction between 'column2' and 'column3'. The third feature is the square of 'column4', the fourth feature is 'column5' with categorical variable and the fifth feature is the round of 'column1'.
+```
+import numpy as np
+
+def engineer_features(data):
+    # create new feature 1 - log of column1
+    data['log_column1'] = np.log(data['column1'])
+    # create new feature 2 - interaction between column2 and column3
+    data['column2_x_column3'] = data['column2'] * data['column3']
+    # create new feature 3 - square of column4
+    data['square_column4'] = data['column4'] ** 2
+    # create new feature 4 - column5 with categorical variable
+    data['column5_category'] = pd.cut(data['column5'], bins=[0, 10, 20, 30], labels=['low', 'medium', 'high'])
+    # create new feature 5 - round columns
+    data['round_column1'] = data['column1'].round()
+    return data
+
+engineered_data = engineer_features(data)
+```
+## Dimensionality reduction
+```
+from sklearn.decomposition import PCA
+
+def reduce_dimensions(data, n_components):
+    pca = PCA(n_components=n_components)
+    data = pca.fit_transform(data)
+    return data
+
+reduced_data = reduce_dimensions(data, n_components=5)
+```
+```
+## Clustering
+```
+from sklearn.cluster import KMeans
+
+def cluster_data(data, n_clusters):
+    kmeans = KMeans(n_clusters=n_clusters)
+    kmeans.fit(data)
+    data['cluster'] = kmeans.predict(data)
+    return data
+
+clustered_data = cluster_data(data, n_clusters=3)
+```
+## Anomaly detection
+```
+from sklearn.ensemble import IsolationForest
+
+def detect_anomalies(data):
+    isolation_forest = IsolationForest(contamination=0.1)
+    isolation_forest.fit(data)
+    data['anomaly'] = isolation_forest.predict(data)
+    data['anomaly'] = data['anomaly'].map({1: 0, -1: 1})
+    return data
+```
+anomalies_data = detect_anomalies(data)
+## Imputing Missing Values
+```
+from sklearn.impute import SimpleImputer
+
+def impute_missing_values(data):
+    imputer = SimpleImputer(strategy='mean')
+    data = imputer.fit_transform(data)
+    return data
+
+imputed_data = impute_missing_values(data)
+```
 
 
