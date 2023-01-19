@@ -29,7 +29,6 @@ def remove_columns(data, columns_to_remove):
     data = data.drop(columns_to_remove, axis=1)
     return data
 ```
-
 ```
 # replace values
 def replace_values(data, columns_mapping):
@@ -81,7 +80,7 @@ def filter_rows(data, filter_by):
     data = data[data[filter_by[0]] == filter_by[1]]
     return data
 ```
-
+```
 ## Data loading functions
 ```
 def load_csv(filepath):
