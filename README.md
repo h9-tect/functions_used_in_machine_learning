@@ -81,6 +81,8 @@ def filter_rows(data, filter_by):
     data = data[data[filter_by[0]] == filter_by[1]]
     return data
 ```
+```
+
 ## Data loading functions
 ```
 def load_csv(filepath):
@@ -120,6 +122,8 @@ def handle_missing_values(data):
     data = data.fillna(data.mean())
     return data
 ```
+```
+
 ## Data transformation functions
 ```
 def encode_categorical_variables(data):
@@ -137,11 +141,13 @@ def normalize_data(data):
     data = (data - data.min()) / (data.max() - data.min())
     return data
 ```
+```
 ## Data splitting functions
 ```
 def divide_data(data):
     X_train, X_test, y_train, y_test = train_test_split(data.drop('label', axis=1), data['label'], test_size=0.2)
     return X_train, X_test, y_train, y_test
+```
 ```
 ## Data augmentation functions
 ```
@@ -150,6 +156,8 @@ def generate_new_data(data):
     data_gen.fit(data)
     return data_gen
 ```
+```
+
 ## Feature extraction functions
 ```
 def extract_image_features(data):
@@ -173,12 +181,15 @@ def extract_video_features(data):
                 cells_per_block=(2, 2), transform_sqrt=True)
     return hog_features
 ```
+```
 ## Data reshaping functions
 ```
 def reshape_data(data):
     data = data.reshape(-1, 28, 28, 1)
     return data
 ```
+``` 
+
 ## Data balancing functions
 ```
 def balance_dataset(data):
