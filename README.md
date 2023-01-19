@@ -5,7 +5,11 @@
 here is our functions 
 
 ### Data preparation functions
-rename columns 
+```
+
+#rename columns 
 def rename_columns(data, columns_mapping):
     data = data.rename(columns=columns_mapping)
     return data
+```
+
